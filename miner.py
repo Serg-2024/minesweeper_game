@@ -151,7 +151,7 @@ class Level:
         even_row_off = [i for i in prod if i not in [(1, -1), (1, 1), (0, 0)]]
         def adjacent(s):
             row_off = odd_row_off if s.y % 2 else even_row_off
-            adjacents = [i[0] for i in [df[(df.x == s.x + x) & (df.y == s.y + y)].entity.values for x, y in row_off] if i]
+            adjacents = [i[0] for i in [df[(df.x == s.x + x) & (df.y == s.y + y)].entity.values for x, y in row_off] if i.size and i[0]]
             adj_num = len(adjacents)
             if adj_num:
                 adj_types = set(adjacents)
